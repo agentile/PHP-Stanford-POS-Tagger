@@ -132,7 +132,7 @@ class StanfordTagger extends Base {
                 $cmd = escapeshellcmd(
                     $this->getJavaPath()
                     . " $options -cp \""
-                    . $this->getJar()
+                    . $this->getJarCP()
                     . "{$osSeparator}\" edu.stanford.nlp.tagger.maxent.MaxentTagger -model "
                     . $this->getModel()
                     . " -textFile "
@@ -146,7 +146,7 @@ class StanfordTagger extends Base {
                 $cmd = escapeshellcmd(
                     $this->getJavaPath()
                     . " $options -cp \""
-                    . $this->getJar()
+                    . $this->getJarCP()
                     . "{$osSeparator}\" edu.stanford.nlp.ie.crf.CRFClassifier -loadClassifier "
                     . $this->getClassifier()
                     . " -textFile "
@@ -155,6 +155,8 @@ class StanfordTagger extends Base {
                 );
             break;
         }
+
+	echo "Running: " . $cmd . "\n";
 
         $process = proc_open($cmd, $descriptorspec, $pipes, dirname($this->getJar()));
 

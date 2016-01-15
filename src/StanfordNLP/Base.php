@@ -122,6 +122,26 @@ class Base {
     }
 
     /**
+     * JavaCP getter
+     *
+     * Added by bryangruneberg to fix the code that calls JAVA
+     *
+     * @return mixed
+     */
+    public function getJarCP()
+    {
+        $osSeparator = $this->php_os == 'windows' ? ';' : ':';
+	$path_parts = pathinfo($this->getJar());
+	print_r($path_parts);
+	
+	$CP = $path_parts["dirname"] . DIRECTORY_SEPARATOR . "lib/slf4j-api.jar" . $osSeparator 
+	 	. $path_parts["dirname"] . DIRECTORY_SEPARATOR . "lib/slf4j-simple.jar" . $osSeparator 
+		. $this->getJar() . $osSeparator;
+	
+	return $CP;
+    }
+
+    /**
      * Models Jar setter
      *
      * @param $jar string path to jar file
