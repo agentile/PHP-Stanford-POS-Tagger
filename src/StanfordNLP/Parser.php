@@ -91,7 +91,7 @@ class Parser extends Base {
         $osSeparator = $this->php_os == 'windows' ? ';' : ':';
         $cmd = $this->getJavaPath()
             . " $options -cp \""
-            . $this->getJar()
+            . $this->getJarCP()
             . $osSeparator
             . $this->getModelsJar()
             . '" edu.stanford.nlp.parser.lexparser.LexicalizedParser -encoding UTF-8 -outputFormat "'
