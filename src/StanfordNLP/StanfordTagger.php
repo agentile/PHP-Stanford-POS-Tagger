@@ -88,7 +88,7 @@ class StanfordTagger extends Base {
     public function tag($tokens)
     {
         $results = $this->batchTag(array($tokens));
-        return isset($results[0]) ? $results[0] : array();
+        return isset($results) ? $results : array();
     }
 
     /**
