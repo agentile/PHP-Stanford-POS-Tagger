@@ -136,7 +136,7 @@ class StanfordTagger extends Base {
                     . "{$osSeparator}\" edu.stanford.nlp.tagger.maxent.MaxentTagger -model "
                     . $this->getModel()
                     . " -textFile "
-                    . $tmpfname
+                    . "\"$tmpfname\""
                     . " -outputFormat slashTags -tagSeparator "
                     . $separator
                     . " -encoding utf8"
